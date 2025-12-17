@@ -21,47 +21,32 @@
 <script>
 async function initMap() {
 
+  // 1️⃣ Crear mapa
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 6,
     center: { lat: 4.57, lng: -74.29 }
   });
 
-  // 🔗 URL DEL APPS SCRIPT
+  // 2️⃣ Llamar a la API (Apps Script)
   const response = await fetch(
-    "https://script.google.com/macros/s/AKfycbyWvyAucFZE5fKbTu5jmjWqF0VF0cafkN2-ZbUv32C7X6yN4rlvGY0DNHh0Fj-B6Z0r7g/exec"
+    "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT"
   );
-  const estaciones = await response.json();
+  const puntos = await response.json();
 
-  // Marcadores
-  estaciones.forEach(p => {
+  // 3️⃣ Dibujar marcadores
+  puntos.forEach(p => {
     new google.maps.Marker({
       position: { lat: p.lat, lng: p.lng },
       map
     });
   });
 
-  // Ejemplo: unir todas en cadena
-  for (let i = 0; i < estaciones.length - 1; i++) {
-    new google.maps.Polyline({
-      path: [
-        estaciones[i],
-        estaciones[i + 1]
-      ],
-      geodesic: true,
-      strokeColor: "#FF0000",
-      strokeWeight: 3,
-      map
-    });
-  }
 }
 </script>
 
 <script async
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv4c9pg62TuPHSbbdRQFsQJqvpIv5_Jqg&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap">
 </script>
 
 </body>
 </html>
-
-
-
