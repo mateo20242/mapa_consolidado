@@ -29,7 +29,7 @@ async function initMap() {
 
   // 2️⃣ Llamar a la API (Apps Script)
   const response = await fetch(
-    "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT"
+    "https://script.google.com/macros/s/AKfycbz8UYGKYHJTKr_f8HYfKlpmKpRYjwEzD74TjVaQDwbphes_kumAJ_K4w23YNWmVp13uYw/exec"
   );
   const puntos = await response.json();
 
@@ -45,7 +45,7 @@ async function initMap() {
 </script>
 
 <script async
-  src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv4c9pg62TuPHSbbdRQFsQJqvpIv5_Jqg&callback=initMap">
 </script>
 
 </body>
